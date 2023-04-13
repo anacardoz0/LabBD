@@ -1,0 +1,150 @@
+mysql> CREATE DATABASE pessoa;
+mysql> USE pessoa;
+mysql> create table pessoas(
+    -> cpf char(11) not null,
+    -> nome char(40),
+    -> telefone1 char(15),
+    -> telefone2 char(15),
+    -> email char(30),
+    -> data_nascimento date,
+    -> endereco char(50),
+    -> bairro int unsigned,
+    -> cidade int unsigned,
+    -> uf char(2),
+    -> cep char(8)) ;
+
+mysql> show tables;
++-------------------+
+| Tables_in_pessoas |
++-------------------+
+| pessoas           |
++-------------------+
+
+mysql> describe pessoas;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| cpf             | char(11)     | NO   |     | NULL    |       |
+| nome            | char(40)     | YES  |     | NULL    |       |
+| telefone1       | char(15)     | YES  |     | NULL    |       |
+| telefone2       | char(15)     | YES  |     | NULL    |       |
+| email           | char(30)     | YES  |     | NULL    |       |
+| data_nascimento | date         | YES  |     | NULL    |       |
+| endereco        | char(50)     | YES  |     | NULL    |       |
+| bairro          | int unsigned | YES  |     | NULL    |       |
+| cidade          | int unsigned | YES  |     | NULL    |       |
+| uf              | char(2)      | YES  |     | NULL    |       |
+| cep             | char(8)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+
+mysql> use pessoas;
+mysql> CREATE TABLE BAIRRO(
+    -> cod_bairro int unsigned not null,
+    -> descricao char(40));
+
+mysql> use pessoas;
+mysql> create table cidade(
+    -> cod_cidade int unsigned not null,
+    -> descricao char(40));
+
+mysql> use pessoas;
+mysql> create table emprese(
+    -> cgc char(40) not null,
+    -> nome_fantasia char (40),
+    -> razao_social char(40),
+    -> responsavel char (20),
+    -> site_internet char(50),
+    -> email char(30),
+    -> telefone char(15),
+    -> fax char(15),
+    -> endereco char(50),
+    -> bairro int unsigned,
+    -> cidade int unsigned,
+    -> uf char(2),
+    -> cep char(8));
+
+mysql> use pessoas;
+mysql> create table contato(
+    -> num_contato int unsigned not null,
+    -> tipo_cliente char(1) not null,
+    -> cpf char(11),
+    -> cge char(20),
+    -> cgc char(20),
+    -> data date,
+    -> observacao text);
+
+mysql> show tables;
++-------------------+
+| Tables_in_pessoas |
++-------------------+
+| bairro            |
+| cidade            |
+| contato           |
+| emprese           |
+| pessoas           |
++-------------------+
+
+mysql> describe bairro;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| cod_bairro | int unsigned | NO   |     | NULL    |       |
+| descricao  | char(40)     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+mysql> describe cidade;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| cod_cidade | int unsigned | NO   |     | NULL    |       |
+| descricao  | char(40)     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+mysql> describe contato;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| num_contato  | int unsigned | NO   |     | NULL    |       |
+| tipo_cliente | char(1)      | NO   |     | NULL    |       |
+| cpf          | char(11)     | YES  |     | NULL    |       |
+| cge          | char(20)     | YES  |     | NULL    |       |
+| cgc          | char(20)     | YES  |     | NULL    |       |
+| data         | date         | YES  |     | NULL    |       |
+| observacao   | text         | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+
+mysql> describe emprese;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| cgc           | char(40)     | NO   |     | NULL    |       |
+| nome_fantasia | char(40)     | YES  |     | NULL    |       |
+| razao_social  | char(40)     | YES  |     | NULL    |       |
+| responsavel   | char(20)     | YES  |     | NULL    |       |
+| site_internet | char(50)     | YES  |     | NULL    |       |
+| email         | char(30)     | YES  |     | NULL    |       |
+| telefone      | char(15)     | YES  |     | NULL    |       |
+| fax           | char(15)     | YES  |     | NULL    |       |
+| endereco      | char(50)     | YES  |     | NULL    |       |
+| bairro        | int unsigned | YES  |     | NULL    |       |
+| cidade        | int unsigned | YES  |     | NULL    |       |
+| uf            | char(2)      | YES  |     | NULL    |       |
+| cep           | char(8)      | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+
+mysql> describe pessoas;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| cpf             | char(11)     | NO   |     | NULL    |       |
+| nome            | char(40)     | YES  |     | NULL    |       |
+| telefone1       | char(15)     | YES  |     | NULL    |       |
+| telefone2       | char(15)     | YES  |     | NULL    |       |
+| email           | char(30)     | YES  |     | NULL    |       |
+| data_nascimento | date         | YES  |     | NULL    |       |
+| endereco        | char(50)     | YES  |     | NULL    |       |
+| bairro          | int unsigned | YES  |     | NULL    |       |
+| cidade          | int unsigned | YES  |     | NULL    |       |
+| uf              | char(2)      | YES  |     | NULL    |       |
+| cep             | char(8)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
